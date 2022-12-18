@@ -12,8 +12,8 @@ export class App extends React.Component {
             bad: 0,
   }
 
-  leaveFeedback = btnLabel => {
-    this.setState(prevState => ({ [btnLabel]: (prevState[btnLabel] += 1) }));
+  leaveFeedback = btnState => {
+    this.setState(prevState => ({ [btnState]: (prevState[btnState] += 1) }));
   };
    countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
@@ -26,12 +26,10 @@ export class App extends React.Component {
     if (isNaN(goodPercentage)) {
       return 0;
     }
-    return Math.round(goodPercentage * 100);
+    return Math.round(goodPercentage);
   };
 
   render() {
-  console.log(this.state)
-
   return (
     <><Section title='Please leave feedback'>
       <FeedbackOptions options={this.state} onLeaveFeedback={this.leaveFeedback} />
