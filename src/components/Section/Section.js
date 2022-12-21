@@ -2,15 +2,13 @@ import React from "react";
 import './Section.css';
 import PropTypes from 'prop-types';
 
-class Section extends React.Component {
-    render() {
-        return (
-            <div className="section">
-                <h2 className="title">{this.props.title}</h2>
-                {this.props.children}
-            </div>
-        )
-    }
+const Section = ({ title, children }) => {
+    return (
+        <div className="section">
+            <h2 className="title">{title}</h2>
+            {children}
+        </div>
+    )
 }
 Section.propTypes = {
     title: PropTypes.string,
