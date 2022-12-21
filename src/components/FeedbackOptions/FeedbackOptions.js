@@ -1,4 +1,3 @@
-import React from "react";
 import './FeedbackOptions.css';
 import PropTypes from 'prop-types';
 const FeedbackOptions = ({
@@ -8,7 +7,7 @@ const FeedbackOptions = ({
 }) => {
     return (
         < div className="buttonsSet">
-            {Object.keys(options).map(btnLabel => (
+            {options.map(btnLabel => (
                 <button
                     className="statisticsButton"
                     key={btnLabel}
@@ -23,9 +22,9 @@ const FeedbackOptions = ({
 };
 FeedbackOptions.propTypes = {
     options: PropTypes.shape({
-        good: PropTypes.number.isRequired,
-        neutral: PropTypes.number.isRequired,
-        bad: PropTypes.number.isRequired,
+        good: PropTypes.string.isRequired,
+        neutral: PropTypes.string.isRequired,
+        bad: PropTypes.string.isRequired,
     }).isRequired,
     onLeaveFeedback: PropTypes.func.isRequired,
 };
